@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteamApp", "SteamApp\SteamApp.csproj", "{A471AA04-3B45-404E-A0C3-C9CB339421D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A471AA04-3B45-404E-A0C3-C9CB339421D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A471AA04-3B45-404E-A0C3-C9CB339421D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A471AA04-3B45-404E-A0C3-C9CB339421D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A471AA04-3B45-404E-A0C3-C9CB339421D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {138802AF-827E-47D3-ACED-07727C9843A4}
+	EndGlobalSection
+EndGlobal

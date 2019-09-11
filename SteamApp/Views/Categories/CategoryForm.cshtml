@@ -1,0 +1,35 @@
+﻿@model SteamApp.ViewModels.CategoryFormViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CategoryForm</h2>
+
+@using (Html.BeginForm("Save", "Categories"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category.CategoryName)
+        @Html.TextBoxFor(m => m.Category.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Category.CategoryName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category.CategoryDetails)
+        @Html.TextBoxFor(m => m.Category.CategoryDetails, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Category.CategoryDetails)
+    </div>
+
+
+
+
+    @Html.HiddenFor(m => m.Category.CategoryID)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

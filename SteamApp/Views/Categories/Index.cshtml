@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SteamApp.Models.Category>
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Categories</h2>
+
+@Html.ActionLink("Create new", "New")
+@if(!Model.Any())
+{
+    <text>We don't have any categories yet.</text>
+}
+
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Category name</th>
+                <th>Options</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+            <tr>
+                <td>@category.CategoryName</td>
+                
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = category.CategoryID }) |
+                    @Html.ActionLink("Details", "Details", new { id = category.CategoryID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = category.CategoryID })
+                </td>
+            </tr>
+                
+                
+            }
+            
+        </tbody>
+    </table>
+}

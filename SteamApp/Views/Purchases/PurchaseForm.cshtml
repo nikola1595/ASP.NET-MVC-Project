@@ -1,0 +1,40 @@
+﻿
+@model SteamApp.ViewModels.PurchaseFormViewModel
+
+
+@{
+    ViewBag.Title = "New";
+}
+<h2>New Purchase</h2>
+@using (Html.BeginForm("Save", "Purchases"))
+{
+
+    
+
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Clients)
+        @Html.DropDownListFor(m => m.ClientID, new SelectList(Model.Clients, "ClientID", "Name"), "Select your name", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ClientID)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Games)
+        @Html.DropDownListFor(m => m.GameID, new SelectList(Model.Games, "GameID", "Name"), "Select game you want to buy", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GameID)
+    </div>
+
+
+    <div class="form-group">
+        
+        @Html.LabelFor(m => m.PaymentMethods)
+        @Html.DropDownListFor(m => m.PaymentMethodID, new SelectList(Model.PaymentMethods, "PaymentMethodID", "PaymentMethodName"), "Select payment method", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PaymentMethod.PaymentMethodName)
+    </div>
+    
+    @Html.HiddenFor(m => m.PurchaseID)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+

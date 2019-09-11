@@ -1,0 +1,25 @@
+﻿@model SteamApp.Models.Category
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Delete", "Categories"))
+{
+    <h2>
+        Delete Confirmation
+    </h2>
+
+    <div>
+        <text>
+            Please confirm if you want to delete this category:<br />
+            @Model.CategoryName
+        </text>
+    </div>
+
+    
+        <input name="confirmButton" type="submit" value="Delete"
+           onclick="return confirm('Are you sure you want to delete record with ID = @Model.CategoryID');" />
+
+   
+
+}

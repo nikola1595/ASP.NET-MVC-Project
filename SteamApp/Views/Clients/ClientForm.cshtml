@@ -1,0 +1,37 @@
+﻿@model SteamApp.ViewModels.ClientFormViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New client</h2>
+
+@using (Html.BeginForm("Save", "Clients"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Client.Name)
+        @Html.TextBoxFor(m => m.Client.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor( m => m.Client.Name)
+    </div>
+
+
+    <div class="form-group">
+        @Html.CheckBoxFor(m => m.Client.IsSubscribedOnSteam) Subscribe on Steam
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Client.ConsoleTypeID)
+        @Html.DropDownListFor(m => m.Client.ConsoleTypeID, new SelectList(Model.ConsoleTypes, "ConsoleTypeID", "ConsoleName"), "Select console type", new { @class = "form-control" })
+        @Html.ValidationMessageFor( m => m.Client.ConsoleTypeID)
+    </div>
+
+    @Html.HiddenFor( m => m.Client.ClientID)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SteamApp.Models.Purchase>
+@{
+        ViewBag.Title = "Purchases";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Purchases</h2>
+    @if (!Model.Any())
+    {
+        <text>We don't have any purchases yet.</text>
+    }
+    @Html.ActionLink("Add new purchase", "New")
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>PurchaseID</th>
+                <th>Client </th>
+                <th>Game</th>
+                <th>Payment method</th>
+                <th>Date of purchase</th>
+
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var purchase in Model)
+            {
+                <tr>
+                    <td>@purchase.PurchaseID</td>
+                    <td>@purchase.ClientID</td>
+                    <td>@purchase.GameID</td>
+                    <td>@purchase.PaymentMethodID</td>
+                    <td>@purchase.DateOfPurchase</td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = purchase.PurchaseID }) |
+                        @Html.ActionLink("Details", "Details", new { id = purchase.PurchaseID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = purchase.PurchaseID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+

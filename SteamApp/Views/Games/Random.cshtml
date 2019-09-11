@@ -1,0 +1,27 @@
+﻿@model SteamApp.ViewModels.RandomGameViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ 
+    var className = Model.Clients.Count > 0 ? "popular" : null;
+}
+
+
+<h2 class="@className">@Model.Game.Name</h2>
+@if (Model.Clients.Count == 0)
+{
+    <text>No one has ever purchased this game before.</text>
+}
+else
+{
+    <ul>
+        @foreach (var client in Model.Clients)
+        {
+            <li>@client.Name</li>
+        }
+    </ul>
+
+}
+

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SteamApp.Models.Client>
+@{
+    ViewBag.Title = "Clients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Clients</h2>
+<p>
+    @Html.ActionLink("New Client", "New", "Clients", null, new { @class = "btn btn-primary" })
+</p>
+<table id="clients" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Client</th>
+            <th>Console type</th>
+            <th>Duration in months</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            var table = $("#clients").DataTable({
+                ajax: {
+                    url: "/api/clients",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, client) {
+                            return "<a href='/clients/edit/" + client.clientID + "'>" + client.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "consoleType.consoleName"
+                    },
+                    {
+                        data: "consoleType.durationInMonths"
+                    },
+                    
+
+                    {
+                        data: "clientID",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-customer-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#clients").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Are you sure you want to delete this client?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/clients/" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

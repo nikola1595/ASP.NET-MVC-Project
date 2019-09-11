@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SteamApp.Models.Game>
+@{
+    ViewBag.Title = "Games";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Games</h2>
+@Html.ActionLink("Add new game", "New")
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Game</th>
+            <th>Platform </th>
+            <th>Category</th>
+            <th>Price in euros</th>
+            <th>Year published</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>@game.Name</td>
+                <td>@game.GameFor</td>
+                <td>@game.Category.CategoryName</td>
+                <td>@game.GamePrice</td>
+                <td>@game.GameYearPublished</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = game.GameID }) |
+                    @Html.ActionLink("Details", "Details", new { id = game.GameID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = game.GameID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
