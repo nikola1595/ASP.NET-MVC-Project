@@ -10,5 +10,5 @@
   - AutoMapper
   - ASP.NET Identity (diffrent roles for admin, manager, guest and  anonymous users)
   
-  ![](Capture1.PNG)
-  ![](Capture2.PNG)
+ ![](Capture1.PNG)
+ ![](Capture2.PNG)
