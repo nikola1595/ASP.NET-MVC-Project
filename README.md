@@ -1,8 +1,8 @@
 
 # ASP.NET MVC Application managing clients, games and purchases that clients have made.
 
- ![](Capture1.PNG)
- ![](Capture2.PNG)
+ ![](ClientReadOnly.PNG)
+ ![](Games.PNG)
 
 ## Tehnologies used: 
   - Code-first Entity Framework (ASP.NET MVC)
