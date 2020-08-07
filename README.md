@@ -3,16 +3,18 @@
 
 
 
-## Tehnologies used: 
+### Tehnologies used: 
   - Code-first Entity Framework (ASP.NET MVC)
   - ASP.NET Web API
   - AJAX
   - AutoMapper
   - ASP.NET Identity (diffrent roles for admin, manager, guest and  anonymous users)
+  - DataTables
+  - Bootstrap
   
-  CRUD functionalities for Games
+ # CRUD functionalities for Games
  ![](SteamApp/Games.PNG)
  
- Guests can see and search data but can't perform CRUD operations (only admin can). 
+ # Guests can see and search data but can't perform CRUD operations (only admin can). 
  ![](SteamApp/ClientReadOnly.PNG)
  
